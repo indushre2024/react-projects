@@ -1,0 +1,101 @@
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body{
+  padding: 2rem;
+  background-image: linear-gradient(135deg, rgb(255, 210, 221),rgb(255, 228, 248) );
+  text-align: center;
+}
+
+h1, #instruction{
+  text-align: center;
+  font-family: sans-serif;
+  color: rgb(149, 70, 70);
+  font-size: 1.2rem;
+}
+
+h1{
+  font-family: 'Rubik Glitch';
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgb(160, 160, 160);
+}
+
+#challenge-tiles{
+  max-width: 800px;
+  margin:0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.challenge, dialog{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 2rem;
+  border-radius: 15px;
+  background-color: rgb(149, 71, 71);
+  width:40%;
+  padding: 2rem;
+  color: rgb(255, 210, 210);
+  font-family: sans-serif;
+}
+
+@media((max-width:800px)){
+  .challenge{
+    width: 100%;
+  }
+}
+
+.challenge .level, .challenge .time, dialog .score{
+  margin:0 1rem 1rem 1rem;
+  font-size: 1.4rem;
+}
+
+
+.challenge button, dialog button{
+  padding: 0.5rem 1.5rem;
+  width: fit-content;
+  align-self: center;
+  border-radius: 15px;
+  font-size: 1.3rem;
+  border: none;
+  color: inherit;
+  background-color: rgb(94, 0, 0);
+  cursor: pointer;
+  color: rgb(255, 210, 210);
+}
+
+.challenge button:hover, dialog button:hover{
+  transform: translateY(-3px);
+  /* border: 2px solid rgb(255, 210, 210); */
+}
+
+dialog{
+  color: black;
+  border: none;
+  padding: 2rem;
+  width: fit-content;
+  margin: auto;
+}
+
+dialog::backdrop{
+  background: rgba(0, 0, 0, 0.9);
+}
+
+dialog:not([open]){
+  display: none;
+}
+
+dialog .status{
+  font-family: 'Rubik Glitch';
+  font-size: 3rem;
+  margin: 1rem;
+}
+
