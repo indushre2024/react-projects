@@ -18,13 +18,18 @@ function App() {
     changeView(projects.length+1);
   }
 
+  function deleteProject(projectId){
+    changeView(0);
+    projects.splice(projectId,1);
+  }
+
   return (
     <div className="flex max-h-[100vh]">
       <SidePanel changeView={changeView} projects={projects} projectId={viewId}/>
       <div className="px-[1.5rem] grow bg-neutral-300">
         {viewId==0 && <DefaultView changeView={changeView}/>}
         {viewId==1 && <NewProject changeView={changeView} addProject={addProject}/>}
-        {viewId>1 && <ProjectView project={projects[viewId-2]}/>}
+        {viewId>1 && <ProjectView project={projects[viewId-2]} removeProject = {()=>deleteProject(viewId-2)}/>}
       </div>
     </div>
   );

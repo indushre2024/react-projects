@@ -2,7 +2,6 @@ const projects = [];
 const className = "font-mono text-neutral-300 m-x-auto text-center m-t-3";
 
 export default function SidePanel({changeView, projects, projectId}){
-    console.log(projectId);
     function showProject(key){
         changeView(key+2);
     }

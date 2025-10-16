@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-export default function ProjectView({project}){
+export default function ProjectView({project, removeProject}){
     const [tasks, setTasks] = useState(project.tasks || []);
     
     function addTask(e){
@@ -13,7 +13,6 @@ export default function ProjectView({project}){
     }
 
     function deleteTask(taskId){
-        console.log(taskId);
         if(project.tasks){
             const taskSet = project.tasks.filter((task,key)=>key!=taskId);
             setTasks(taskSet);
@@ -21,9 +20,14 @@ export default function ProjectView({project}){
         }
         
     }
+
     return (
         <div className='flex flex-col justify-center min-h-screen w-[80%]'>
-            <p className="font-bold text-neutral-700 text-3xl mb-3">{project.title}</p>
+            <div className="flex justify-between">
+                <p className="font-bold text-neutral-700 text-3xl mb-3">{project.title}</p>
+                <button onClick = {removeProject} className="text-red-700 font-bold text-lg">Delete</button>
+            </div>
+            
             <p className="font-bold text-neutral-500 mb-5">{project.dueDate}</p>
             <p className="text-lg mb-7">{project.description?project.description:''}</p>
             <div className="w-[100%] h-1 bg-neutral-500 mb-3"></div>
