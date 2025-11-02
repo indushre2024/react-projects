@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback, useEffect } from 'react';
+import { useRef, useState, useCallback} from 'react';
 
 import Places from './components/Places.jsx';
 import Modal from './components/Modal.jsx';
@@ -7,27 +7,14 @@ import logoImg from './assets/logo.png';
 import AvailablePlaces from './components/AvailablePlaces.jsx';
 import {updateSelectedPlace, getUserPlaces} from './http.js';
 import Error from './components/Error.jsx';
-
+import {useFetch} from './hooks/useFetch.js';
 
 function App() {
   const selectedPlace = useRef();
-  const [userPlaces, setUserPlaces] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [errorLoading, setErrorLoading] = useState();
   const [error, setError] = useState();
 
-  useEffect(()=>{
-    async function getPlaces(){
-      try{
-        const places = await getUserPlaces();
-        setUserPlaces(places);
-      }
-      catch(error){
-        setErrorLoading({message:error.message})
-      }
-    }
-    getPlaces();
-  },[]);
+  const {data:userPlaces ,isFetching, error:errorLoading, setData:setUserPlaces} = useFetch([],getUserPlaces);
 
   function handleStartRemovePlace(place) {
     setModalIsOpen(true);
@@ -93,6 +80,7 @@ function App() {
       </header>
       <main>
         <Places
+          isFetching= {isFetching}
           title="I'd like to visit ..."
           fallbackText="Select the places you would like to visit below."
           places={userPlaces}
