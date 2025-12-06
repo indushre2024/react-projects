@@ -1,16 +1,51 @@
-# React + Vite
+🎬 Movies Explorer
+A simple and fast movie-discovery app built with React + Vite, using the TMDB API for fetching movies and Appwrite as the backend to track search activity and generate Trending Movies based on real user behavior.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📸 Screenshot
 
-Currently, two official plugins are available:
+<img width="988" height="975" alt="image" src="https://github.com/user-attachments/assets/0f794a24-6eae-4de7-96b7-84235df3f01b" />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔍 Search movies instantly using TMDB
 
-## Expanding the ESLint configuration
+🔥 Trending Movies powered by Appwrite search analytics
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🎞 Clean UI with popular & all-movies sections
+
+💾 Appwrite Database stores search terms + counts
+
+⚡ Fast Vite-based development & build
+
+🛠 Tech Stack
+
+Frontend: React (Vite)
+
+Backend: Appwrite Cloud
+
+API: TMDB
+
+Deployment: GitHub Pages / AWS Amplify
+
+🧱 Appwrite Table Structure (SearchTerms)
+Field	Type	Description
+searchTerm	string	User’s searched movie
+count	int	Number of searches
+posterLink	string	Movie poster URL
+movie_id	string	TMDB movie ID
+🔧 Setup
+1. Install dependencies
+npm install
+
+2. Add environment variables
+
+Create .env:
+
+VITE_APPWRITE_PROJECT_ID=...
+VITE_APPWRITE_DATABASE_ID=...
+VITE_APPWRITE_TABLE_ID=...
+VITE_TMDB_API_KEY=...
+
+3. Run locally
+npm run dev
